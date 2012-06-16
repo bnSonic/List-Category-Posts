@@ -235,7 +235,9 @@ class CatList{
 			 * http://codex.wordpress.org/Function_Reference/strip_shortcodes
 			*/
 			if($single->post_excerpt){
-				return $single->post_excerpt;
+				$lcp_excerpt = $single->post_excerpt;
+			} else {
+				$lcp_excerpt = strip_shortcodes(strip_tags($single->post_content));
 			}
 			$lcp_excerpt = strip_shortcodes(strip_tags($single->post_content));
 			$exc_lim = intval($this->params['excerpt_size']);
